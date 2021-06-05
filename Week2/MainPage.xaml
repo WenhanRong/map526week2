@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Week2.MainPage"
+             Title="Pizza App">
+
+    <!--<StackLayout>
+        <Frame BackgroundColor="#2196F3" Padding="24" CornerRadius="0">
+            <Label Text="Welcome to Xamarin.Forms!" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
+        </Frame>
+        <Label Text="Start developing now" FontSize="Title" Padding="30,10,30,10"/>
+        <Label Text="Make changes to your XAML file and save to see your UI update in the running app with XAML Hot Reload. Give it a try!" FontSize="16" Padding="30,0,30,0"/>
+        <Label FontSize="16" Padding="30,24,30,0">
+            <Label.FormattedText>
+                <FormattedString>
+                    <FormattedString.Spans>
+                        <Span Text="Learn more at "/>
+                        <Span Text="https://aka.ms/xamarin-quickstart" FontAttributes="Bold"/>
+                    </FormattedString.Spans>
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+    </StackLayout>-->
+
+    <!--<StackLayout Orientation="Horizontal"
+        BindingContext="{x:Reference mySlider}"
+        HorizontalOptions="Center"
+                 VerticalOptions="Center">
+        <Label  Text="{Binding Value}"
+                Opacity="{Binding Value}"
+                FontSize="Large"
+                />
+        <BoxView Color="Chocolate" Opacity="{Binding Value}"></BoxView>
+
+
+        <Slider x:Name="mySlider" ></Slider>
+     </StackLayout>-->
+
+    <StackLayout>
+        <!--<Frame BackgroundColor="#2196F3"  Padding="12" CornerRadius="0">
+            <Label Text="Pizza App" HorizontalTextAlignment="Center" TextColor="White" FontSize="20"/>
+        </Frame>-->
+
+        <Grid ColumnSpacing="10" RowSpacing="10" Margin="10,5,30,10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="45"/>
+                <RowDefinition Height="45"/>
+                <RowDefinition Height="45"/>
+                <RowDefinition Height="45"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1.5*"/>
+                <ColumnDefinition Width="1.5*"/>
+                <ColumnDefinition Width="1.5*"/>
+                <ColumnDefinition Width="1.5*"/>
+            </Grid.ColumnDefinitions>
+
+
+            <!--<Image Source="https://freesvg.org/img/pizza2-1447860.png" Margin="40,0,0,0"></Image>-->
+            <Image Source="https://static.wikia.nocookie.net/recipes/images/6/6e/Pepperoni_Pizza.jpg/revision/latest/scale-to-width-down/438?cb=20150421044114" Margin="20,00,0,0"></Image>
+            <!--<Label Grid.Row="0" Grid.ColumnSpan="2">
+               
+
+            </Label>-->
+            <!--<Button Grid.Row="0" Grid.ColumnSpan="2" Text="add" Clicked="addNewPizza"/>-->
+            <Button Grid.Row="0" Grid.Column="3" Text="MY ORDER" FontSize="12" TextColor="White" BackgroundColor="Blue" CornerRadius="5" Clicked="Button_MyOrder"/>
+
+            <Label  Grid.Row="1" Grid.Column="0" Text="Quantity: " FontSize="Medium"  ></Label>
+            <Label x:Name="valueQuantity" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Text="0"   FontSize="Medium"  ></Label>
+
+            <Button Grid.Row="2" Grid.Column="0" Text="1" CornerRadius="10" Clicked="Button_Clicked"/>
+
+            <Button Grid.Row="2" Grid.Column="1" Text="2" CornerRadius="10" Clicked="Button_Clicked"/>
+
+            <Button Grid.Row="2" Grid.Column="2" Text="3" CornerRadius="10" Clicked="Button_Clicked" />
+
+            <Button Grid.Row="3" Grid.Column="0" Text="4" CornerRadius="10" Clicked="Button_Clicked"/>
+
+            <Button Grid.Row="3" Grid.Column="1" Text="5" CornerRadius="10" Clicked="Button_Clicked"/>
+
+            <Button Grid.Row="3" Grid.Column="2" Text="6" CornerRadius="10" Clicked="Button_Clicked"/>
+
+            <Button Grid.Row="4" Grid.Column="0" Text="7" CornerRadius="10" Clicked="Button_Clicked"/>
+
+            <Button Grid.Row="4" Grid.Column="1" Text="8" CornerRadius="10" Clicked="Button_Clicked"/>
+
+            <Button Grid.Row="4" Grid.Column="2" Text="9" CornerRadius="10" Clicked="Button_Clicked"/>
+
+            <Button Grid.Row="5" Grid.Column="0" Text="RESET" CornerRadius="10"  TextColor="White" BackgroundColor="Red" Clicked="Button_Rest"/>
+
+            <Button Grid.Row="5" Grid.Column="1" Text="0" CornerRadius="10" Clicked="Button_Clicked"/>
+
+            <Button Grid.Row="5" Grid.Column="2" Text="BUY" CornerRadius="10" TextColor="White" BackgroundColor="Green" Clicked="Button_Buy"/>
+
+
+        </Grid>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Row="0" Grid.Column="0" Text="Topping: " FontSize="Small" Margin="15,10,0,0" ></Label>
+
+            <Label x:Name="valueTopping" Grid.Row="0" Grid.Column="1" Text="0" FontSize="Small" Margin="0,10,0,0" ></Label>
+
+            <Label Grid.Row="0" Grid.Column="2" Text="Size: " FontSize="Small" Margin="15,10,0,0" ></Label>
+
+            <Label x:Name="valueSize" Grid.Row="0" Grid.Column="3" Text="0" FontSize="Small" Margin="0,10,0,0" ></Label>
+
+            <ListView x:Name="pizzaListTopping" ItemSelected="pizzaListTopping_ItemSelected" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding name}" />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <!--<ListView x:Name="pizzaList2" ItemSelected="pizzaList_ItemSelected2" Grid.Row="1" Grid.Column="1">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding size}"/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>-->
+
+            <ListView x:Name="pizzaListSize" ItemSelected="pizzaListSize_ItemSelected" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding name}"/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+        </Grid>
+
+
+
+    </StackLayout>
+
+</ContentPage>
