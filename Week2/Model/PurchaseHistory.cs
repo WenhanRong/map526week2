@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Week2.Model
 {
-    class PurchaseHistory : INotifyPropertyChanged
+    public class PurchaseHistory : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 

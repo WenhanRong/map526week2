@@ -23,7 +23,7 @@ namespace Week2
         //}
 
         ObservableCollection<Product> products;
-        ObservableCollection<PurchaseHistory> purchaseHistories;
+        //ObservableCollection<PurchaseHistory> purchaseHistories;
 
         public MyOrder(ObservableCollection<Product> product)
         {

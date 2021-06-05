@@ -28,6 +28,7 @@ namespace Week2
        
        
 
+
         public MainPage()
         {
             InitializeComponent();
@@ -44,7 +45,7 @@ namespace Week2
         async private void Button_MyOrder(System.Object sender, System.EventArgs e)
         {
             //DisplayAlert("Thank You", "Pizza Prepared", "OK");
-            await Navigation.PushAsync(new MyOrder(products), true);
+            await Navigation.PushAsync(new MyOrder(products),  true);
 
         }
 
