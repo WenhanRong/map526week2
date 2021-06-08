@@ -20,6 +20,7 @@ namespace Week2
 
         ObservableCollection<Product> products;
         //ObservableCollection<PurchaseHistory> purchaseHistories;
+        public ObservableCollection<Order> order = new ObservableCollection<Order>();
 
 
         public CurrentPage(ObservableCollection<Product> products)
@@ -31,5 +32,22 @@ namespace Week2
             //purchaseHistories = purchaseHistory;
 
         }
+
+        async void Button_Place(object sender, EventArgs e)
+        {
+            if (order.orderQuantity ==0) { 
+
+            }
+
+
+            //order.newOrder = true;
+            
+            var message = "Your order will be prepared. Thank you.";
+            await DisplayAlert("Success!!", message, "OK");
+            await Navigation.PopToRootAsync();
+
+        }
+
+        
     }
 }

@@ -13,7 +13,7 @@ namespace Week2
     [XamlCompilation(XamlCompilationOptions.Compile)]
 
     public partial class MyOrder : ContentPage
-    {        
+    {
         //Product products;
 
         //public MyOrder(Product prod)
@@ -22,14 +22,20 @@ namespace Week2
         //    products = prod;
         //}
 
-        ObservableCollection<Product> products;
+        Order order;
+        PurchaseHistory purchaseHistory;
+
+        //ObservableCollection<Product> products;
         //ObservableCollection<PurchaseHistory> purchaseHistories;
 
-        public MyOrder(ObservableCollection<Product> product)
+        //public MyOrder(Order order, PurchaseHistory purchaseHistory)
+        public MyOrder(Order order)
         {
             InitializeComponent();
 
-            products = product;
+
+
+            //products = product;
 
             //purchaseHistories = purchaseHistory;
             
@@ -43,7 +49,7 @@ namespace Week2
 
         async private void Current_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new CurrentPage(products), true);
+            await Navigation.PushAsync(new CurrentPage(order), true);
         }
 
         async private void Update_Clicked(object sender, EventArgs e)

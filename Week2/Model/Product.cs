@@ -10,24 +10,52 @@ namespace Week2
     public class Product : INotifyPropertyChanged
     {
         private string _quantity;
-
+        private double _subAmount;
         public event PropertyChangedEventHandler PropertyChanged;
         //private int _quantity;
 
         //ObservableCollection<Order> orders;
 
         public List<Pizza> pizzas = new List<Pizza>();
-        //public Pizza pizzas = new Pizza();
         public List<PizzaSize> sizes = new List<PizzaSize>();
+
+        //public Pizza pizzas = new Pizza();
         //public PizzaSize sizes = new PizzaSize();
         //public List<PizzaOrder> pizzaorder = new List<PizzaOrder>();
 
-        ObservableCollection<Model.Order> ol = new ObservableCollection<Model.Order>();
-        public double qty = 0;
-        public double total = 0;
-        public Pizza p; //pizza class
-        public PizzaSize ps; //pizza size class
+        public ObservableCollection<Model.Order> ol = new ObservableCollection<Model.Order>();
+        public double qty { get; set; }
+        public double total { get; set; }
+        public Pizza p;      //pizza class
+        public PizzaSize ps; //pizzasize class
+        public string pizzaToppingName { get; set; }
+        public string pizzaSizeName { get; set; }
 
+                             
+        public double subAmount
+        {
+            get
+            {
+                return _subAmount;
+                //double price = Convert.ToDouble(p.price);
+                //double rate = Convert.ToDouble(ps.rate);
+                //double quantity = Convert.ToDouble(Quantity);
+                //return price*rate*quantity;           
+                ////return Convert.ToDouble(p.price) * Convert.ToDouble(ps.rate) * Convert.ToDouble(Quantity);
+            }
+            set 
+            {
+                if (_subAmount == value)
+                {
+                    return;
+                }
+                _subAmount = value;
+                if (PropertyChanged != null)
+                {
+                    PropertyChanged(this, new PropertyChangedEventArgs(nameof(subAmount)));
+                }
+            }
+        }
 
         public string Quantity
         {
@@ -41,11 +69,11 @@ namespace Week2
                 _quantity = value;
                 if (PropertyChanged != null)
                 {
-                    PropertyChanged(this, new PropertyChangedEventArgs(nameof(Quantity)));
+                    PropertyChanged(this, new PropertyChangedEventArgs(nameof(quantity)));
                 }
             }
         }
-
+        
         //public void addNewPizza(Pizza p)
         //{
         //    pizzas.Add(p);
@@ -65,55 +93,47 @@ namespace Week2
         //    this.price = p;
         //}
 
-
-
         public void orderCalculator(Pizza pizza , PizzaSize size, string quantity)
         {
             this.qty = Double.Parse(quantity);
             this.total = Double.Parse(pizza.price) * size.rate * Double.Parse(quantity);
-            this.ol.Add(new Model.Order(pizza, size, DateTime.Now.ToString(), quantity));
+            //this.ol.Add(new Model.Order(pizza, size, DateTime.Now.ToString(), quantity));
         }
+
+        
+
 
         public void Button_MyOrder(Pizza p)
         {
             pizzas.Add(p);
         }
 
-        //public void Button_Calculate(Pizza p)
-        //{
-        //    pizzas.Add(p);
-        //}
-
-        //orders = new ObservableCollection<Order>
-        //    {
-        //        new Order("Pants", "50.7", "20"),
-        //        new Product("Shoes", "90", "50"),
-        //        new Product("Hats", "20.5", "10"),
-        //        new Product("Tshirts", "15.6", "20"),
-        //        new Product("Gloves", "25.99", "30"),
-        //        new Product("Dresses", "65.5", "40"),
-        //        new Product("C# Book", "99.99", "100")
-        //    };
+ 
 
         public Product(Pizza pizza, PizzaSize pizzasize , string quantity) 
         {
             p = new Pizza(pizza.name, pizza.price);
             ps = new PizzaSize(pizzasize.name, pizzasize.rate);
-            this._quantity = quantity;
+            this.p = pizza;
+            this.ps = pizzasize;
+            this.pizzaToppingName = pizza.name;
+            this.pizzaSizeName = pizzasize.name;
+            this.subAmount = Convert.ToDouble(p.price) * Convert.ToDouble(ps.rate) * Convert.ToDouble(Quantity);
+            this.Quantity = quantity;
         }
-        public Product()
-        {
-            pizzas.Add(new Pizza("vegitables", "10"));
-            pizzas.Add(new Pizza("meet balls", "20"));
-            pizzas.Add(new Pizza("pepperony", "30"));
-            pizzas.Add(new Pizza("mushrooms", "40"));
-            pizzas.Add(new Pizza("pasta", "40"));
-            pizzas.Add(new Pizza("apple", "40"));
-            pizzas.Add(new Pizza("lemon", "40"));
-            sizes.Add(new PizzaSize("Large", 3));
-            sizes.Add(new PizzaSize("Medium", 2));
-            sizes.Add(new PizzaSize("Small", 1));
-            sizes.Add(new PizzaSize("Party", 4));
-        }
+        //public Product()
+        //{
+        //    pizzas.Add(new Pizza("vegitables", "10"));
+        //    pizzas.Add(new Pizza("meet balls", "20"));
+        //    pizzas.Add(new Pizza("pepperony", "30"));
+        //    pizzas.Add(new Pizza("mushrooms", "40"));
+        //    pizzas.Add(new Pizza("pasta", "40"));
+        //    pizzas.Add(new Pizza("apple", "40"));
+        //    pizzas.Add(new Pizza("lemon", "40"));
+        //    sizes.Add(new PizzaSize("Large", 3));
+        //    sizes.Add(new PizzaSize("Medium", 2));
+        //    sizes.Add(new PizzaSize("Small", 1));
+        //    sizes.Add(new PizzaSize("Party", 4));
+        //}
     }
 }

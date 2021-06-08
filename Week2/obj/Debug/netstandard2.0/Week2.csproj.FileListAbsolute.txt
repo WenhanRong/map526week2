@@ -16,3 +16,4 @@ C:\3_Work\MAP526\Week2\Week2\obj\Debug\netstandard2.0\XamlC.stamp
 C:\3_Work\MAP526\Week2\Week2\obj\Debug\netstandard2.0\Week2.dll
 C:\3_Work\MAP526\Week2\Week2\obj\Debug\netstandard2.0\ref\Week2.dll
 C:\3_Work\MAP526\Week2\Week2\obj\Debug\netstandard2.0\Week2.pdb
+C:\3_Work\MAP526\Week2\Week2\obj\Debug\netstandard2.0\Week2.csprojAssemblyReference.cache

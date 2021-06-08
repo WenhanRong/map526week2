@@ -6,9 +6,40 @@
              >
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
+            <!--<Label Text="Welcome to Xamarin.Forms!"
                 VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+                HorizontalOptions="CenterAndExpand" />-->
+            <Label Text="{Binding amount, StringFormat='{0:N} $'}"   HorizontalOptions="Center" FontSize="Large" />
+            <Label Text="{Binding orderQuantity, StringFormat='{0}'}" HorizontalOptions="Center" FontSize="Large" />
+            
+            <StackLayout Orientation="Vertical">
+                <ListView x:Name="listOrder">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <ViewCell.ContextActions>
+                                    <MenuItem Clicked="Button_Delete"  CommandParameter="{Binding .}" Text="Delete"/>
+                                </ViewCell.ContextActions>
+
+                                <StackLayout Orientation="Vertical">
+                                    <Grid RowDefinitions="20,20" ColumnDefinitions="0.5*,0.5*" Margin="10,0,10,0" RowSpacing="0">
+                                        <Label Text="{Binding pizzaToppingName, StringFormat='Topping: {0}'}"/>
+                                        <Label Text="{Binding subAmount, StringFormat='{0:N} $'}" Grid.Column="1" HorizontalOptions="End"/>
+                                        <Label Text="{Binding pizzaSizeName, StringFormat='Size: {0}'}" Grid.Row="1"/>
+                                        <Label Text="{Binding Quantity, StringFormat='Quantity: {0}'}" Grid.Row="1" Grid.Column="1" HorizontalOptions="End"/>
+                                    </Grid>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+
+
+            <Button Text="PLACE ORDER" TextColor="Black" BackgroundColor="YellowGreen" 
+                    FontAttributes="Bold" BorderRadius="10" Margin="0,0,0,10" 
+                    HorizontalOptions="Center" VerticalOptions="EndAndExpand" Clicked="Button_Place" />
+            
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

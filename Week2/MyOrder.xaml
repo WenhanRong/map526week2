@@ -7,10 +7,10 @@
             <!--<Label Text="Welcome to Xamarin.Forms!"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />-->
-            <Button Text = "CHECK CURRENT ORDER" BackgroundColor = "LightBlue" TextColor = "CornflowerBlue" FontSize = "20" CornerRadius = "30" Clicked="Current_Clicked"/>
-            <Button Text = "UPDATE CURRENT ORDER" BackgroundColor = "LightBlue" TextColor = "CornflowerBlue" FontSize = "20" CornerRadius = "30" Clicked="Update_Clicked"/>
-            <Button Text = "PREVIOUS ORDERS" BackgroundColor = "LightBlue" TextColor = "CornflowerBlue" FontSize = "20" CornerRadius = "30" Clicked="History_Clicked" />
-            <Button Text = "NEW ORDERS" BackgroundColor = "LightBlue" TextColor = "CornflowerBlue" FontSize = "20" CornerRadius = "30" Clicked="Add_Clicked" />
+            <Button Text = "CHECK CURRENT ORDER" BackgroundColor = "Gray" TextColor = "Black" FontSize = "20" CornerRadius = "30" Clicked="Current_Clicked"/>
+            <Button Text = "UPDATE CURRENT ORDER" BackgroundColor = "Gray" TextColor = "Black" FontSize = "20" CornerRadius = "30" Clicked="Update_Clicked"/>
+            <Button Text = "PREVIOUS ORDERS" BackgroundColor = "Gray" TextColor = "Black" FontSize = "20" CornerRadius = "30" Clicked="History_Clicked" />
+            <Button Text = "NEW ORDERS" BackgroundColor = "Gray" TextColor = "Black" FontSize = "20" CornerRadius = "30" Clicked="Add_Clicked" />
 
         </StackLayout>
     </ContentPage.Content>
